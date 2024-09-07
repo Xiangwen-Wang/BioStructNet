@@ -18,6 +18,8 @@ BioStructNet is especially useful for predicting biocatalytic activities (e.g., 
 - **Transfer Learning**: Fine-tune pre-trained models on small function-specific datasets to enhance prediction accuracy with three fine-tuning methods, block, free, and LoRa.
 - **Molecular Docking Validation**: Integrates docking simulations to compare learned interaction maps with physical conformations of protein-ligand complexes.
 
+![overview](https://github.com/user-attachments/assets/7fe42a11-84b7-4495-960e-f9704c3d9b09)
+
 ---
 
 ## Repository Contents
