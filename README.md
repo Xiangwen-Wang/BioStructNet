@@ -56,7 +56,6 @@ You may also need molecular docking software (e.g., AutoDock) and molecular dyna
 Download PDB file from PDBBANK.
 Prepare the pdb files of the database by RosettaCM (https://docs.rosettacommons.org/docs/latest/application_documentation/structure_prediction/RosettaCM)
 or Alphafold2 (https://alphafold.ebi.ac.uk/).
-Some PDB files have been saved in 'zip' in `data/` folder
 
 ### Model Training and predicting
 
