@@ -1,0 +1,25 @@
+README
+
+Sequence-based dataset preprocess:
+
+01_brenda_retrieve.py: get access to the web client and retrieve dataset from the BRENDA database with given ec number range
+02_brenda_download.py: read all data in the retrieved files and output all EC files
+03_brenda_preprocess.py: collect all the files into one document and do the pre-clean
+04_brenda_clean.py: read all EC files and find the max value for each substrate for the chosen microorganism
+05_brenda_sequence_organism.py: obtain the protein sequences for all data based on EC number and organism and output into one file for further use
+06_brenda_get_smiles.py: get canonical SMILES just by substrate name for the BRENDA data using PubChem API
+07_sabio_download.py: get access to the web client and download the dataset from the SABIO-RK database
+08_sabio_typeselect.py: read all data from the downloaded files and output into one file with given target data type
+09_sabio_clean.py: clean the data for the SABIO-RK data
+10_sabio_mutant.py: annotate the enzyme type information, i.e., wildtype or mutant
+11_sabio_get_smiles.py: get canonical SMILES just by substrate name for the SABIO-RK data and output one file for use
+12_combine_brenda_sabio.py: combine the Kcat data from the BRENDA and the SABIO-RK database (sabio dataset have the uniport ID)
+13_sequence_based.py: generate all the combined data and mutate the wildtype with the mutations, the output KM_results.json for sequence-based deep learning.
+
+
+Structure-based dataset preprocess:
+13_sequence_based.py: generate all the combined data and mutate the wildtype with the mutations, keep the sequence as wildtype for mutations
+14_get_pdb.py: get pdb ID from PDBbank from uniprot ID
+15_summary_pdbid.py: summary the uniqe pdb id
+16_pdb_clean: download pdb structures and clean it with ChinaA
+17_mutation_pdb.py: get the sequence from the PDB structure and do the mutation on the wildtype to get mutant sequences. The output KM_PDBseq.json for structure-based deep learning. 

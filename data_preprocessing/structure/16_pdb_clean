@@ -1,0 +1,6 @@
+16_pdb_clean
+
+# download pdb files from PDBBank
+# delete ligand, and only saved matched chain
+# check if sequence from structure file cannot match sequence from uniprot, using sequence from structure file.
+
