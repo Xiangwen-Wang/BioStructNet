@@ -1,5 +1,5 @@
 # BioStructNet
-BioStructNet is a structure-based deep learning model designed to enhance the prediction of enzyme-substrate interactions, particularly focusing on biocatalysis. It includes transfer learning approaches for small, function-based datasets. The parameters are validated through molecular docking and MD simulations. 
+BioStructNet is a structure-based deep learning model designed to enhance the prediction of enzyme-substrate interactions, particularly focusing on biocatalysis. It includes transfer learning approaches for small, function-based datasets. The parameters are validated through molecular docking and MD simulations. This work is published as "BioStructNet: Structure-Based Network with Transfer Learning for Predicting Biocatalyst Functions" in Journal of Chemical Theory and Computation (https://doi.org/10.1021/acs.jctc.4c01391).
 Here's a detailed `README.md` template for your GitHub repository:
 
 ---
