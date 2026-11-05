@@ -75,11 +75,11 @@ def uniprotID_entry() :
     print('sequence')
     print(len(uniprotID_seq))
 
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/uniprotID_entry.json', 'w') as outfile :
+    with open('.../uniprotID_entry.json', 'w') as outfile :
         json.dump(uniprotID_seq, outfile, indent=4)
 
 def uniprotID_noseq() :
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/uniprotID_entry.json', 'r') as infile :
+    with open('.../uniprotID_entry.json', 'r') as infile :
         uniprotID_seq = json.load(infile)
 
     print(len(uniprotID_seq))
@@ -137,9 +137,9 @@ def seq_by_ec_organism(ec, organism) :
 # Run in python 2.7
 def seq_by_brenda(ec, organism) :
     # E-mail in BRENDA:
-    email = 'shuohan_liU@outlook.com'
+    email = 'your email'
     # Password in BRENDA:
-    password = 'wxw9521'
+    password = 'your password'
 
     endpointURL = "https://www.brenda-enzymes.org/soap/brenda_server.php"
     client      = SOAPProxy(endpointURL)
@@ -160,7 +160,7 @@ def seq_by_brenda(ec, organism) :
 def nouniprotID_entry_uniprot() :
 
 
-    with codecs.open("/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/Km_combination.tsv", "r", encoding='utf-8') as file :
+    with codecs.open(".../Km_combination.tsv", "r", encoding='utf-8') as file :
         combination_lines = file.readlines()[1:]
 
     IdSeq = dict()
@@ -189,12 +189,12 @@ def nouniprotID_entry_uniprot() :
         if i%10 == 0 :
             time.sleep(3)
 
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/nouniprotID_entry_all.json', 'w') as outfile :
+    with open('.../nouniprotID_entry_all.json', 'w') as outfile :
         json.dump(IdSeq, outfile, indent=4)
 
 # Run in python 2.7
 def nouniprotID_entry_brenda() :
-    with open("/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/Km_combination.tsv", "r") as file :
+    with open(".../Km_combination.tsv", "r") as file :
         combination_lines = file.readlines()[1:]
 
     IdSeq = dict()
@@ -233,7 +233,7 @@ def nouniprotID_entry_brenda() :
     if new_list:
         process_batch(new_list, IdSeq)
 
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/nouniprotID_entry_brenda.json', 'w') as outfile :
+    with open('.../nouniprotID_entry_brenda.json', 'w') as outfile :
         json.dump(IdSeq, outfile, indent=4)
 
 def process_batch(entries, IdSeq):
@@ -246,16 +246,16 @@ def process_batch(entries, IdSeq):
     IdSeq.update(batch_results)
 
 def combine_sequence() :
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/uniprotID_entry.json', 'r') as file1:
+    with open('.../uniprotID_entry.json', 'r') as file1:
         uniprot_file1 = json.load(file1)
 
-    # with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/nouniprotID_entry_all.json', 'r') as file2:  # By Uniprot API
+    # with open('.../nouniprotID_entry_all.json', 'r') as file2:  # By Uniprot API
     #     nouniprot_file2 = json.load(file2)
 
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/nouniprotID_entry_brenda.json', 'r') as file3:  # By BRENDA API
+    with open('.../nouniprotID_entry_brenda.json', 'r') as file3:  # By BRENDA API
         nouniprot_file3 = json.load(file3)
 
-    with codecs.open("/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/Km_combination.tsv", "r", encoding='utf-8') as file4 :
+    with codecs.open(".../Km_combination.tsv", "r", encoding='utf-8') as file4 :
         Kcat_lines = file4.readlines()[1:]
 
     # i = 0
@@ -374,11 +374,11 @@ def combine_sequence() :
 
     # with open('../../Data/database/Kcat_combination_0918.json', 'w') as outfile :
     #     json.dump(entries, outfile, indent=4)
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/KM_results.json', 'w') as outfile :
+    with open('.../KM_results.json', 'w') as outfile :
         json.dump(entries, outfile, indent=4)
 
 def check_substrate_seq() :
-    with open('/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/KM_results.json', 'r') as file :
+    with open('.../KM_results.json', 'r') as file :
         datasets = json.load(file)
     UniprotID = [data['UniprotID'].upper() for data in datasets]
     substrate = [data['Substrate'].lower() for data in datasets]
@@ -400,7 +400,7 @@ def check_substrate_seq() :
 
 
 
-    with open("/Users/xw0201/Desktop/postdoc/CPI_structure_CALB/Large_Dataset/BRENDA/KcatKm/unique_uniprot.txt", 'w') as file:
+    with open(".../unique_uniprot.txt", 'w') as file:
         for value in set(UniprotID):
             file.write(value + '\n')
 
